@@ -9,3 +9,6 @@ cs439-project/
 ├── db_utils.py
 ├── explore_all.py
 ├── requirements.txt
+
+
+This is my Directory Outline
