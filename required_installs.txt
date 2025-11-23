@@ -1,7 +1,0 @@
-pandas
-numpy
-sqlalchemy
-pymysql
-scikit-learn
-
-When needing to reference these, you simply can put pip install -r requirements.txt, allowing you to do it as a whole instead of doing it individually
