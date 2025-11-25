@@ -1,5 +1,5 @@
 """
-This file loads and cleans the Sleep Health dataset.
+This file loads and cleans the Sleep Health dataset
 
 Run in terminal using: "py clean_sleep.py"
 
