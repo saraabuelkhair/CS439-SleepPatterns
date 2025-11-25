@@ -1,5 +1,5 @@
 """
-This file loads and cleans the Student Lifestyle dataset.
+This file loads and cleans the Student Lifestyle dataset
 
 Run in terminal using "py clean_student.py"
 
