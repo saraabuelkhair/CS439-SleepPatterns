@@ -1,8 +1,7 @@
 """
 Configuration file for the project
 
-This file stores all paths, MySQL settings, table names, and other
-variables that will be used across the cleaning and database scripts.
+This file stores all paths, MySQL settings, table names, and other variables that will be used across the cleaning and database scripts.
 
 Do NOT run this file directly.
 """
