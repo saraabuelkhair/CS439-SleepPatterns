@@ -48,7 +48,6 @@ def write_sleep_table(df):
 def create_indexes_and_view():
     engine = get_engine()
     with engine.begin() as conn:
-        # Make index dropping safe by ignoring "doesn't exist" errors
         for sql in [
             f"ALTER TABLE {STUDENT_TABLE} DROP INDEX idx_student_sleep;",
             f"ALTER TABLE {STUDENT_TABLE} DROP INDEX idx_student_stress;",
