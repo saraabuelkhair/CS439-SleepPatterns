@@ -1,0 +1,146 @@
+Student dataset summary: 
+
+- students study students study around 5-10 hours a day with most clusterings around 6-8 hours.
+
+- sleep ranges from 5-10 hours today with a peak at around 7.5-8 hours.
+
+- most students socialize 0-3 hours a day.
+
+- physical activity peaks around 3-5 hours a day.
+
+- GPA is centered around 3.0-3.3.
+
+- stress level 3 (high) is the most common.
+
+Student heatmap summary:
+
+- study hours and GPA (0.73): Strong positive. More study -> higher GPA.
+
+- physical activity and GPA (–0.34): Moderate negative. Students who exercise more tend to have slightly lower GPAs.
+
+- stress level and GPA (0.55): moderate positive. High-stress students also tend to have high study hours, which inflates GPA correlation.
+
+- sleep and GPA (≈0): No meaningful relationship. Sleep amount does not predict academic success.
+
+- sleep and stress: (–0.30): Mild negative. Less sleep -> higher stress.
+
+Sleep vs GPA plot with regression line
+
+- the regression line is almost flat -> sleep does not strongly affect GPA.
+
+Study Hours vs GPA
+
+- clear upward linear trend.
+
+- as study hours increase, GPA tends to increase.
+
+Student dataset boxplots
+
+- high-stress students sleep less.
+
+- high-stress students study significantly more.
+
+- high-stress students appear to be high achieving, high workload individuals who sacrifice sleep to study more.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Adult sleep dataset summary:
+
+- adults average 6–8.5 hours of sleep, which is a much smaller range than the student dataset.
+
+- sleep quality is mostly 6–8, matching expected adult patterns.
+
+- physical activity level varies widely.
+
+- stress levels have a wide range from 3-8.
+
+- daily steps cluster around 6,000-8,500.
+
+Adult/sleep heatmap
+
+- sleep hours and sleep quantity (0.88): Very strong positive. More sleep -> higher sleep quality.
+
+- stress and sleep hours (–0.81): Strong negative. High-stress adults sleep significantly less.
+
+- stress and sleep quality (–0.90): Extremely strong negative. High stress very negatively impacts sleep quality.
+
+- daily steps and stress (0.77): Strong positive. Adults with high stress walk more.
+
+- heart rate and stress (0.76): Strong positive. High stress -> increased heart rate.
+
+Adult sleep vs stress boxplots
+
+- clear downward trend.
+- adult dataset shows much stronger physiological patterns than student dataset.
+
+-------------------------------------------------------------------------------------------------------------------------------
+Regression Modeling for GPA prediction
+
+- Linear Regression Results:
+R² = 0.55: the model explains 55% of the variation in GPA
+MAE = 0.164: on average, GPA predictions were off by about 0.16 points
+
+- Random Forest Regression Results:
+R² = 0.44: explains less variance than linear regression
+MAE = 0.184: slightly larger prediction error
+
+- GPA appears to follow a fairly linear relationship with the lifestyle variables, especially study hours. Tree based modeling did not increase predictive power, suggesting that GPA in this dataset is largely driven by a simple linear trend rather than complex relationships.
+
+Feature Importance
+
+- Random Forest feature importance reveals:
+Study hours per day — 59.7% importance (strongest predictor)
+Social hours per day — 10.5%
+Physical activity — 9.9%
+Extracurricular hours — 9.8%
+Sleep hours — 9.6%
+Stress level — 0.5% (minimal effect)
+
+- Study hours overwhelmingly dominate GPA prediction. Lifestyle factors such as sleep, physical activity, and extracurriculars have much weaker effects. Stress level appears to have almost no predictive value for GPA, meaning stressed students in the dataset tend to maintain similar academic performance.
+
+----------------------------------------------------------------------------------------------------------------------------
+Stress Classification Model
+
+- Random Forest Classifier Performance
+The random forest classifier achieved perfect accuracy:
+Precision = 1.00
+Recall = 1.00
+F1-score = 1.00
+No false positives or false negatives
+
+- Students’ lifestyle patterns clearly separate high-stress vs low-stress individuals. The dataset has very strong and consistent behavioral signals associated with high stress.
+
+Most Important Predictors of High Stress:
+Study hours — 27.7%
+Sleep hours — 11.3%
+Physical activity — 1.7%
+
+- (after the stress label itself) study hours and sleep hours are the strongest indicators of a student belonging to the high-stress group.
+
+--------------------------------------------------------------------------------------------------------
+K-Means Clustering
+
+Cluster 0: 
+Highest GPA (3.24)
+Highest sleep (8.6 hours)
+Highest study hours (8.4 hrs)
+Lowest stress (2.64)
+
+Cluster 1:
+Very high physical activity (7.25 hrs)
+Lowest sleep (6.7 hrs)
+Lowest study hours (6.7 hrs)
+Lowest GPA (3.00)
+
+Cluster 2:
+Highest social hours (4.5 hrs)
+Moderate sleep (7.2 hrs)
+Moderate study (7.4 hrs)
+GPA around 3.10
+Stress level moderate (2.30)
+
+-Clustering meaningfully separates:
+Work focused students
+Balanced students
+Social/active students
+
