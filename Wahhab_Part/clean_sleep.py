@@ -9,6 +9,7 @@ Load this cleaned dataset into MySQL using "db_utils.write_sleep_table(clean_sle
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
+from config import SLEEP_CSV_PATH
 
 
 def clean_sleep_dataset(df: pd.DataFrame) -> pd.DataFrame:
@@ -88,3 +89,8 @@ def clean_sleep_dataset(df: pd.DataFrame) -> pd.DataFrame:
 
     df = pd.concat([df, scaled_df], axis=1)
     return df
+
+if __name__ == "__main__":
+    df = pd.read_csv(SLEEP_CSV_PATH)
+    cleaned_df = clean_sleep_dataset(df)
+    cleaned_df.to_csv("cleaned_sleep_dataset.csv", index=False)
