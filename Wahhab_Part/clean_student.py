@@ -88,3 +88,11 @@ def clean_student_dataset(df: pd.DataFrame) -> pd.DataFrame:
 
     df = pd.concat([df, scaled_df], axis=1)
     return df
+
+if __name__ == "__main__":
+    df = pd.read_csv(STUDENT_CSV_PATH)
+    cleaned_df = clean_student_dataset(df)
+    cleaned_df.to_csv("cleaned_student_dataset.csv", index=False)
+    print("Cleaned dataset saved to 'cleaned_student_dataset.csv'")
+    df = pd.concat([df, scaled_df], axis=1)
+    return df
