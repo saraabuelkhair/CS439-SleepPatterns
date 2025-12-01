@@ -29,7 +29,6 @@ Files include:
 - Sleep Duration vs GPA (Students)
 - Sleep Hours Affecting Stress Levels Dashboard
 - Study Hours vs GPA (Colored by Sleep Duration)
-- and others
 
 These graphs help illustrate high-level patterns and comparisons in an easy-to-read format.
 
