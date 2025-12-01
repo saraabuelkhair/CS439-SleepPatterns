@@ -30,7 +30,7 @@ Files include:
 - Sleep Hours Affecting Stress Levels Dashboard
 - Study Hours vs GPA (Colored by Sleep Duration)
 
-These graphs help illustrate high-level patterns and comparisons in an easy-to-read format.
+These graphs help illustrate high-level patterns and comparisons in an easy-to-read format. They all include captions explaining what each graph means.
 
 ---
 
@@ -61,5 +61,4 @@ My analysis focuses on:
 - Running machine learning models (Random Forest) to identify key predictors of GPA
 - Generating correlation heatmaps to summarize student lifestyle relationships
 
-The goal of this section is to explore how student behaviors impact well-being and academic outcomes,  
-and to visually present clear trends across the datasets.
+The goal of this section is to explore how student behaviors impact well-being and academic outcomes, and to visually present clear trends across the datasets.
