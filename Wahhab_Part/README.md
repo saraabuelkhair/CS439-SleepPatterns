@@ -1,10 +1,10 @@
-Wahhab Part — Data Cleaning, SQL Pipeline, and Backend Integration
+# Wahhab Part — Data Cleaning, SQL Pipeline, and Backend Integration
 
 This folder includes all of my work for the CS439 Sleep Patterns project.
 My part focuses on preparing and organizing both datasets, cleaning and structuring the data, and building the full SQL pipeline used for querying, merging, and analyzing sleep, stress, and lifestyle variables. I also helped set up the foundation for the modeling workflow by ensuring all datasets were standardized, indexed, and ready for analysis.
 
-Folder Structure
-1. data_preprocessing/
+# Folder Structure
+## 1. data_preprocessing/
 
 This folder contains all the scripts I wrote to clean, standardize, and transform both datasets:
 
@@ -32,7 +32,7 @@ Exporting cleaned datasets for SQL and modeling
 
 These cleaned files were later used for SQL ingestion, feature analysis, machine learning modeling, and visualization.
 
-2. sql_pipeline/
+## 2. sql_pipeline/
 
 This folder contains the scripts responsible for building and managing our SQL database.
 
@@ -74,7 +74,7 @@ Previews each table
 
 Ensures the unified view is working correctly
 
-3. analysis_support/
+## 3. analysis_support/
 
 This folder contains the analysis pipeline that directly uses the cleaned datasets I prepared.
 
