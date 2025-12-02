@@ -1,6 +1,5 @@
 # **Wahhab Part — Data Cleaning, SQL Pipeline, and Backend Integration**
 
-This folder includes all of my work for the CS439 Sleep Patterns project.  
 My part focuses on preparing and organizing both datasets, cleaning and structuring the data, and building the full SQL pipeline used for querying, merging, and analyzing sleep, stress, and lifestyle variables. I also helped set up the foundation for the modeling workflow by ensuring all datasets were standardized, indexed, and ready for analysis.
 
 ---
@@ -95,5 +94,4 @@ In my part of the project, I worked on:
 - Preparing clean datasets for modeling, visualization, and Tableau work  
 - Supporting the entire pipeline to ensure reliable data flow for all team members  
 
-My goal was to build a strong backend foundation for the entire project by ensuring the data was organized, accurate, and ready for high-quality analysis.
-
+My goal was to build a strong foundation for the entire project by ensuring the data was organized, accurate, and ready for analysis.
