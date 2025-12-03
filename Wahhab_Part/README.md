@@ -62,26 +62,6 @@ A quick inspection tool that:
 
 ---
 
-## **3. analysis_support/**
-
-This folder contains the analysis pipeline that directly uses the cleaned datasets I prepared.
-
-- `analysisandmodeling.py`
-
-This script runs:
-
-- Exploratory Data Analysis (EDA) on student and adult datasets  
-- Heatmaps, histograms, regression plots, and boxplots  
-- GPA prediction models (Linear Regression & Random Forest)  
-- High-stress classification model  
-- K-means clustering for lifestyle grouping  
-- PCA visualization for cluster interpretation  
-- Cluster summary profiles  
-
-Although modeling tasks were assigned to another member, my data cleaning and SQL integration ensured this script ran on fully cleaned, consistent, and standardized data.
-
----
-
 # **Summary of My Contribution**
 
 In my part of the project, I worked on:
