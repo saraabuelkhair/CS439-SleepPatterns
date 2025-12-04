@@ -18,7 +18,6 @@ sns.set_theme(style="whitegrid", context="talk")
 student_df = pd.read_csv("cleaned_student_dataset.csv")
 sleep_df = pd.read_csv("cleaned_sleep_dataset.csv")
 
-
 # EDA for student data
 numeric_cols = [
     "study_hours_per_day",
@@ -53,7 +52,7 @@ fig, axes = plt.subplots(2, 3, figsize=(16, 8), constrained_layout=True)
 axes = axes.flatten()
 
 for ax, col in zip(axes, cont_cols):
-    sns.histplot(student_df[col], kde=True, bins=20, ax=ax)
+    sns.histplot(student_df[col], bins=20, ax=ax)
     ax.set_title(f"Distribution of {pretty_names[col]}", fontsize=13)
     ax.set_xlabel(pretty_names[col], fontsize=11)
     ax.set_ylabel("Count", fontsize=11)
@@ -63,9 +62,87 @@ plt.show()
 # stress levels distribution
 plt.figure(figsize=(5, 4))
 sns.countplot(data=student_df, x="stress_level")
-plt.title("Stress Level Distribution", fontsize=14)
+plt.title("(Student Dataset) Stress Level Distribution", fontsize=14)
 plt.xlabel("Stress Level", fontsize=12)
 plt.ylabel("Count", fontsize=12)
+plt.tight_layout()
+plt.show()
+
+# boxplot for study hours distribution by stress level
+plt.figure(figsize=(7, 5))
+sns.boxplot(
+    data=student_df,
+    x="stress_level",
+    y="study_hours_per_day",
+    showfliers=False
+)
+
+plt.title("(Student Dataset) Study Hours per Day by Stress Level")
+plt.xlabel("Stress Level")
+plt.ylabel("Study Hours per Day")
+plt.tight_layout()
+plt.show()
+
+# boxplot for sleep hours distribution by stress level
+plt.figure(figsize=(7, 5))
+sns.boxplot(
+    data=student_df,
+    x="stress_level",
+    y="sleep_hours_per_day"
+)
+
+plt.title("(Student Dataset) Sleep Hours per Day by Stress Level")
+plt.xlabel("Stress Level")
+plt.ylabel("Sleep Hours per Day")
+plt.tight_layout()
+plt.show()
+
+# heatmap for student data
+corr = student_df[numeric_cols].corr()
+
+plt.figure(figsize=(10, 8))
+mask = np.triu(np.ones_like(corr, dtype=bool))
+
+sns.heatmap(
+    corr,
+    mask=mask,
+    annot=True,
+    fmt=".2f",
+    cmap="coolwarm",
+    vmin=-1,
+    vmax=1,
+    square=True,
+    annot_kws={"size": 11}
+)
+plt.title("Correlation Heatmap – Student Dataset", fontsize=18)
+plt.xticks(rotation=45, ha="right")
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+# scatterplots with regression lines for GPA vs sleep/study hours
+plt.figure(figsize=(7, 5))
+sns.regplot(
+    data=student_df,
+    x="sleep_hours_per_day",
+    y="gpa",
+    scatter_kws={"alpha": 0.15, "s": 20},
+    line_kws={"color": "red", "linewidth": 2},
+)
+plt.title("(Student Dataset) Sleep Hours vs GPA with Regression Line)")
+plt.tight_layout()
+plt.show()
+
+
+plt.figure(figsize=(7, 5))
+sns.regplot(
+    data=student_df,
+    x="study_hours_per_day",
+    y="gpa",
+    scatter_kws={"alpha": 0.3},
+    line_kws={"linewidth": 2}
+)
+plt.title("(Student Dataset) Study Hours vs GPA with Regression Line")
 plt.tight_layout()
 plt.show()
 
@@ -93,14 +170,22 @@ sleep_pretty = {
 }
 
 for ax, col in zip(axes, sleep_numeric):
-    sns.histplot(sleep_df[col], kde=True, bins=20, ax=ax)
+    sns.histplot(sleep_df[col], bins=20, ax=ax)
     ax.set_title(f"Distribution of {sleep_pretty[col]}", fontsize=13)
     ax.set_xlabel(sleep_pretty[col], fontsize=11)
     ax.set_ylabel("Count", fontsize=11)
 
 plt.show()
 
-# heatmap for sleep dataset
+plt.figure(figsize=(5, 4))
+sns.countplot(data=sleep_df, x="stress_level")
+plt.title("(Adult Dataset) Stress Level Distribution", fontsize=14)
+plt.xlabel("Stress Level", fontsize=12)
+plt.ylabel("Count", fontsize=12)
+plt.tight_layout()
+plt.show()
+
+# heatmap for sleep/adult dataset
 corr_sleep = sleep_df[sleep_numeric].corr()
 
 plt.figure(figsize=(10, 8))
@@ -117,7 +202,7 @@ sns.heatmap(
     square=True,
     annot_kws={"size": 11}
 )
-plt.title("Correlation Heatmap – Sleep Health (Adults)", fontsize=18)
+plt.title("Correlation Heatmap – Adult Dataset", fontsize=18)
 plt.xticks(rotation=45, ha="right")
 plt.yticks(rotation=0)
 plt.tight_layout()
@@ -131,89 +216,11 @@ sns.boxplot(
     y="sleep_hours_per_day",
     showfliers=False
 )
-plt.title("Adult Sleep Hours per Day by Stress Level")
+plt.title("(Adult Dataset) Sleep Hours per Day by Stress Level")
 plt.xlabel("Stress Level")
 plt.ylabel("Sleep Hours per Day")
 plt.tight_layout()
 plt.show()
-
-
-# heatmap for student data
-corr = student_df[numeric_cols].corr()
-
-plt.figure(figsize=(10, 8))
-mask = np.triu(np.ones_like(corr, dtype=bool))
-
-sns.heatmap(
-    corr,
-    mask=mask,
-    annot=True,
-    fmt=".2f",
-    cmap="coolwarm",
-    vmin=-1,
-    vmax=1,
-    square=True,
-    annot_kws={"size": 11}
-)
-plt.title("Correlation Heatmap – Student Lifestyle", fontsize=18)
-plt.xticks(rotation=45, ha="right")
-plt.yticks(rotation=0)
-plt.tight_layout()
-plt.show()
-
-# scatterplots with regression lines for GPA vs sleep/study hours
-plt.figure(figsize=(7, 5))
-sns.regplot(
-    data=student_df,
-    x="sleep_hours_per_day",
-    y="gpa",
-    scatter_kws={"alpha": 0.15, "s": 20},
-    line_kws={"color": "red", "linewidth": 2},
-)
-plt.title("Sleep Hours vs GPA (Regression Line)")
-plt.tight_layout()
-plt.show()
-
-
-plt.figure(figsize=(7, 5))
-sns.regplot(
-    data=student_df,
-    x="study_hours_per_day",
-    y="gpa",
-    scatter_kws={"alpha": 0.3},
-    line_kws={"linewidth": 2}
-)
-plt.title("Study Hours vs GPA (with Regression Line)")
-plt.tight_layout()
-plt.show()
-
-# boxplot for sleep hours distribution by stress level
-plt.figure(figsize=(7, 5))
-sns.boxplot(
-    data=student_df,
-    x="stress_level",
-    y="sleep_hours_per_day"
-)
-plt.title("Sleep Hours per Day by Stress Level")
-plt.xlabel("Stress Level")
-plt.ylabel("Sleep Hours per Day")
-plt.tight_layout()
-plt.show()
-
-# boxplot for study hours distribution by stress level
-plt.figure(figsize=(7, 5))
-sns.boxplot(
-    data=student_df,
-    x="stress_level",
-    y="study_hours_per_day",
-    showfliers=False
-)
-plt.title("Study Hours per Day by Stress Level")
-plt.xlabel("Stress Level")
-plt.ylabel("Study Hours per Day")
-plt.tight_layout()
-plt.show()
-
 
 # regession modeling for predicting GPA
 feature_cols = [
@@ -275,7 +282,15 @@ student_df["high_stress"] = (
     student_df["stress_level"] == 3
 ).astype(int)
 
-X = student_df[feature_cols]
+feature_cols_no_stress = [
+    "study_hours_per_day",
+    "extracurricular_hours_per_day",
+    "sleep_hours_per_day",
+    "social_hours_per_day",
+    "physical_activity_hours_per_day"
+]
+
+X = student_df[feature_cols_no_stress]
 y = student_df["high_stress"]
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -284,8 +299,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 rf_clf = RandomForestClassifier(n_estimators=200, random_state=42)
 rf_clf.fit(X_train, y_train)
-
 y_pred = rf_clf.predict(X_test)
+
 
 print("\nHIGH-STRESS CLASSIFICATION RESULTS")
 print("Accuracy:", accuracy_score(y_test, y_pred))
@@ -299,7 +314,7 @@ plt.ylabel("Actual")
 plt.show()
 
 # feature importance
-clf_imp = pd.Series(rf_clf.feature_importances_, index=feature_cols)
+clf_imp = pd.Series(rf_clf.feature_importances_, index=feature_cols_no_stress)
 print("\nSTRESS CLASSIFIER FEATURE IMPORTANCE")
 print(clf_imp.sort_values(ascending=False))
 
@@ -339,6 +354,7 @@ plt.xlabel("Principal Component 1")
 plt.ylabel("Principal Component 2")
 plt.tight_layout()
 plt.show()
+
 
 
 
