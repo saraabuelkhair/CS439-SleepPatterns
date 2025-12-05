@@ -33,7 +33,7 @@ We expect to find that students with less sleep will likely have higher stress l
 
 ## Work Division
 
-Wahhab Ahmed, Data & SQL Lead: Handles data collection, cleaning, SQL database setup, and data merging.
+- 'Wahhab Ahmed, Data & SQL Lead: Handles data collection, cleaning, SQL database setup, and data merging.'
 Ryan Callaghan, Analysis & Modeling Lead: Focuses on EDA, machine learning modeling, and evaluation.
 Sara Abuelkhair, Visualization & Reporting Lead: Responsible for visualizations, report writing, and presentation materials.
 
