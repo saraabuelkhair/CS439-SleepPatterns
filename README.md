@@ -4,7 +4,7 @@
 Our project aims to explore the relationship between sleep patterns, stress levels, and academic performance among college students. We are planning to compare these patterns to the general adult population to understand how lifestyle habits differ between the two groups and how they impact well-being and academic outcomes. Sleep and stress are two major factors affecting students' mental health and academic success. Many students have trouble finding time to study, do extracurricular activities, and sleep, which often leads to higher stress levels and lower academic performance. Our goal is to learn how students' sleep, study, and social habits affect their stress levels and GPAs, and then compare those patterns to the more stable habits of adults. We want to help students figure out how to improve their routines for better mental health and school performance by looking at these factors.
 The research question guiding this project is: “How do sleep patterns relate to stress levels and academic performance among students compared with general adults?”
 
-##Data Sources & Preparation
+## Data Sources & Preparation
 
 Our project's objective is to investigate the correlation between common student lifestyle patterns and stress, with the goal of determining how these factors impact academic performance. To fulfill this, we decided that we would need two varying datasets to conduct the analysis of this relationship and to support any predictive or affirming models we develop. 
 
